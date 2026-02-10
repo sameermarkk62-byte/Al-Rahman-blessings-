@@ -3,132 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Rahman Blessings | Premium Fragrances</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Al Rahman Blessings | Premium Attar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #333; background-color: #fff; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fff; color: #1a1a1a; }
 
-        /* Navigation Bar */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        /* Logo Design: Al Rahman on top, Blessings below */
+        header { padding: 30px; text-align: center; background: #fff; border-bottom: 1px solid #eee; }
+        .logo-top { 
+            font-family: 'Playfair Display', serif; font-size: 35px; font-weight: 900; 
+            color: #b08d57; text-transform: uppercase; letter-spacing: 3px; line-height: 1;
         }
-        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; color: #b08d57; text-transform: uppercase; letter-spacing: 2px; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav ul li a:hover { color: #b08d57; }
+        .logo-bottom { 
+            font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; 
+            color: #333; text-transform: uppercase; letter-spacing: 8px; margin-top: 5px;
+        }
 
         /* Hero Section (Aapki Background Image) */
         .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                        url('https://i.ibb.co/hF6vN1HR/bg-image.jpg');
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://i.ibb.co/hF6vN1HR/bg-image.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax effect for professional look */
-            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
+            image-rendering: -webkit-optimize-contrast;
         }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 55px; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero-content p { font-size: 20px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
 
-        /* Section Styling */
-        .section { padding: 100px 8%; text-align: center; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 50px; color: #1a1a1a; position: relative; padding-bottom: 15px; }
-        h2::after { content: ''; width: 60px; height: 2px; background: #b08d57; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        /* Product Grid */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .product-card { background: #fff; padding: 15px; transition: 0.5s; border: 1px solid #f2f2f2; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 0; margin-bottom: 20px; }
-        .product-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 15px; font-weight: 600; }
+        /* Product Gallery */
+        .section { padding: 60px 8%; text-align: center; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { border: 1px solid #f2f2f2; padding: 15px; background: #fff; border-radius: 8px; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .product-card img, .product-card video { width: 100%; height: 350px; object-fit: cover; border-radius: 5px; }
         
         .buy-btn {
-            display: inline-block; padding: 12px 30px; background: #b08d57; color: #fff;
-            text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+            display: inline-block; padding: 10px 20px; background: #b08d57; color: #fff;
+            text-decoration: none; margin-top: 15px; font-weight: bold; border-radius: 4px;
         }
-        .buy-btn:hover { background: #1a1a1a; }
 
-        /* About Us Section */
-        #about { background-color: #fcfbf7; }
-        #about p { max-width: 800px; margin: 0 auto; line-height: 2; color: #555; font-size: 16px; }
-
-        /* Footer / Contact */
-        footer { background: #111; color: #fff; padding: 80px 8% 30px; text-align: center; }
-        .contact-info h2 { color: #fff; margin-bottom: 30px; }
-        .contact-info p { margin: 10px 0; font-size: 15px; color: #aaa; }
-        .copyright { margin-top: 60px; font-size: 11px; color: #444; letter-spacing: 1px; border-top: 1px solid #222; padding-top: 20px; }
+        /* Permanent Upload Button Style */
+        .admin-zone {
+            background: #fdfaf5; border: 2px dashed #b08d57;
+            margin: 50px 8%; padding: 40px; text-align: center; border-radius: 15px;
+        }
+        #upload_widget {
+            padding: 15px 30px; background: #1a1a1a; color: #fff; border: none;
+            font-size: 16px; cursor: pointer; border-radius: 5px; font-weight: 600;
+        }
+        #upload_widget:hover { background: #b08d57; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Al Rahman Blessings</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Collection</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="logo-top">Al Rahman</div>
+        <div class="logo-bottom">Blessings</div>
+    </header>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Exquisite Fragrances</h1>
-            <p>Traditional Attars & Modern Oud</p>
+    <div class="hero"></div>
+
+    <section class="section">
+        <h2>Our Collection</h2>
+        <div class="product-grid" id="gallery">
+            <div class="product-card">
+                <img src="https://i.ibb.co/CshKB2GS/image.jpg" alt="Product">
+                <h3>White Oud</h3>
+                <a href="https://wa.me/918383983217" class="buy-btn">Inquiry</a>
+            </div>
         </div>
+    </section>
+
+    <div class="admin-zone">
+        <h3 style="margin-bottom: 20px;">Admin Panel: Upload Video or Photo</h3>
+        <button id="upload_widget" class="cloudinary-button">Direct Upload (Select File)</button>
+        <p style="margin-top: 15px; font-size: 13px; color: #666;">Photos & Videos uploaded here will be saved permanently.</p>
     </div>
 
-    <section id="about" class="section">
-        <h2>Our Heritage</h2>
-        <p>
-            Al Rahman Blessings brings you the finest selection of hand-poured Attars and premium Ouds. 
-            We focus on purity, sophistication, and scents that leave a lasting impression.
-        </p>
-    </section>
+    <script type="text/javascript">  
+        var myWidget = cloudinary.createUploadWidget({
+          cloudName: 'demo', // Yahan aapka Cloudinary name aayega
+          uploadPreset: 'unsigned_preset' // Yahan aapka preset aayega
+        }, (error, result) => { 
+            if (!error && result && result.event === "success") { 
+              console.log('Done! Here is the info: ', result.info); 
+              const gallery = document.getElementById('gallery');
+              const card = document.createElement('div');
+              card.className = 'product-card';
 
-    <section id="products" class="section">
-        <h2>The Signature Collection</h2>
-        <div class="product-grid">
-            
-            <div class="product-card">
-                <img src="https://i.ibb.co/CshKB2GS/product1.jpg" alt="Product 1">
-                <h3>Royal White Oud</h3>
-                <a href="https://wa.me/918383983217?text=Hi, I am interested in Royal White Oud" class="buy-btn">Enquire on WhatsApp</a>
-            </div>
+              if(result.info.resource_type === 'video') {
+                  card.innerHTML = `<video src="${result.info.secure_url}" controls></video>`;
+              } else {
+                  card.innerHTML = `<img src="${result.info.secure_url}">`;
+              }
+              
+              card.innerHTML += `<h3>New Arrival</h3><a href="https://wa.me/918383983217" class="buy-btn">Inquiry</a>`;
+              gallery.prepend(card);
+            }
+        });
 
-            <div class="product-card">
-                <img src="https://i.ibb.co/Z6jjBmJm/product2.jpg" alt="Product 2">
-                <h3>Imperial Black Oud</h3>
-                <a href="https://wa.me/918383983217?text=Hi, I am interested in Imperial Black Oud" class="buy-btn">Enquire on WhatsApp</a>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.ibb.co/DfGgP7J6/product3.jpg" alt="Product 3">
-                <h3>Classic Fasli Gulab</h3>
-                <a href="https://wa.me/918383983217?text=Hi, I am interested in Fasli Gulab" class="buy-btn">Enquire on WhatsApp</a>
-            </div>
-
-            <div class="product-card">
-                <img src="https://i.ibb.co/5WRz7PMv/product4.jpg" alt="Product 4">
-                <h3>Premium Bakhoor</h3>
-                <a href="https://wa.me/918383983217?text=Hi, I am interested in Premium Bakhoor" class="buy-btn">Enquire on WhatsApp</a>
-            </div>
-
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="contact-info">
-            <h2 style="color:white">Connect With Us</h2>
-            <p>WhatsApp: +91 8383983217</p>
-            <p>Experience the scent of luxury in every drop.</p>
-        </div>
-        <p class="copyright">&copy; 2026 AL RAHMAN BLESSINGS. ALL RIGHTS RESERVED.</p>
-    </footer>
+        document.getElementById("upload_widget").addEventListener("click", function(){
+            myWidget.open();
+        }, false);
+    </script>
 
 </body>
 </html>
