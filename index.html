@@ -3,157 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Rahman Blessings | Premium Attar & Fragrances</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Al Rahman Blessings | Premium Fragrances</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; background-color: #fff; overflow-x: hidden; }
 
         /* Navigation Bar */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 8%; background: #fff; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; color: #b08d57; text-transform: uppercase; letter-spacing: 2px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #1a1a1a; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav ul li a:hover { color: #b08d57; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #555;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        nav ul li a:hover {
-            color: #b08d57; /* Gold/Oud theme color */
-        }
-
-        /* Hero Section - Background Image Fix */
+        /* Hero Section (Aapki Background Image) */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1615484477778-ca3b77940c25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                        url('https://i.ibb.co/hF6vN1HR/bg-image.jpg');
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            background-attachment: fixed; /* Parallax effect for professional look */
+            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
         }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 55px; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 20px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
 
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
+        /* Section Styling */
+        .section { padding: 100px 8%; text-align: center; }
+        h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 50px; color: #1a1a1a; position: relative; padding-bottom: 15px; }
+        h2::after { content: ''; width: 60px; height: 2px; background: #b08d57; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        .hero-content p {
-            font-size: 18px;
-            font-weight: 300;
-            letter-spacing: 2px;
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .product-card { background: #fff; padding: 15px; transition: 0.5s; border: 1px solid #f2f2f2; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .product-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 0; margin-bottom: 20px; }
+        .product-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 15px; font-weight: 600; }
+        
+        .buy-btn {
+            display: inline-block; padding: 12px 30px; background: #b08d57; color: #fff;
+            text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
+        .buy-btn:hover { background: #1a1a1a; }
 
-        /* Products Section */
-        .section {
-            padding: 80px 10%;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section h2::after {
-            content: '';
-            width: 50px;
-            height: 2px;
-            background: #b08d57;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: white;
-            padding: 20px;
-            border-radius: 4px;
-            transition: 0.3s;
-            border: 1px solid #eee;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .product-card h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: #1a1a1a;
-        }
+        /* About Us Section */
+        #about { background-color: #fcfbf7; }
+        #about p { max-width: 800px; margin: 0 auto; line-height: 2; color: #555; font-size: 16px; }
 
         /* Footer / Contact */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 10% 20px;
-            text-align: center;
-        }
-
-        .contact-info {
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            margin: 10px 0;
-            font-size: 14px;
-            color: #ccc;
-        }
+        footer { background: #111; color: #fff; padding: 80px 8% 30px; text-align: center; }
+        .contact-info h2 { color: #fff; margin-bottom: 30px; }
+        .contact-info p { margin: 10px 0; font-size: 15px; color: #aaa; }
+        .copyright { margin-top: 60px; font-size: 11px; color: #444; letter-spacing: 1px; border-top: 1px solid #222; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -163,8 +70,8 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#products">Collection</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -176,32 +83,51 @@
     </div>
 
     <section id="about" class="section">
-        <h2>About Us</h2>
-        <p style="max-width: 700px; margin: 0 auto; line-height: 1.8; color: #666;">
-            Al Rahman Blessings is dedicated to the art of fine perfumery. We source the highest quality ingredients to bring you authentic, long-lasting fragrances that resonate with tradition and luxury.
+        <h2>Our Heritage</h2>
+        <p>
+            Al Rahman Blessings brings you the finest selection of hand-poured Attars and premium Ouds. 
+            We focus on purity, sophistication, and scents that leave a lasting impression.
         </p>
     </section>
 
-    <section id="products" class="section" style="background: #fff;">
-        <h2>Our Collection</h2>
+    <section id="products" class="section">
+        <h2>The Signature Collection</h2>
         <div class="product-grid">
-            <div class="product-card"><h3>White Oud</h3></div>
-            <div class="product-card"><h3>Black Oud</h3></div>
-            <div class="product-card"><h3>Frutella</h3></div>
-            <div class="product-card"><h3>Oud Al Kashif</h3></div>
-            <div class="product-card"><h3>Bakhoor Oud</h3></div>
-            <div class="product-card"><h3>Fasli Gulab</h3></div>
+            
+            <div class="product-card">
+                <img src="https://i.ibb.co/CshKB2GS/product1.jpg" alt="Product 1">
+                <h3>Royal White Oud</h3>
+                <a href="https://wa.me/918383983217?text=Hi, I am interested in Royal White Oud" class="buy-btn">Enquire on WhatsApp</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/Z6jjBmJm/product2.jpg" alt="Product 2">
+                <h3>Imperial Black Oud</h3>
+                <a href="https://wa.me/918383983217?text=Hi, I am interested in Imperial Black Oud" class="buy-btn">Enquire on WhatsApp</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/DfGgP7J6/product3.jpg" alt="Product 3">
+                <h3>Classic Fasli Gulab</h3>
+                <a href="https://wa.me/918383983217?text=Hi, I am interested in Fasli Gulab" class="buy-btn">Enquire on WhatsApp</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/5WRz7PMv/product4.jpg" alt="Product 4">
+                <h3>Premium Bakhoor</h3>
+                <a href="https://wa.me/918383983217?text=Hi, I am interested in Premium Bakhoor" class="buy-btn">Enquire on WhatsApp</a>
+            </div>
+
         </div>
     </section>
 
     <footer id="contact">
         <div class="contact-info">
-            <h2>Contact Us</h2>
+            <h2 style="color:white">Connect With Us</h2>
             <p>WhatsApp: +91 8383983217</p>
-            <p>Email: info@alrahmanblessings.com</p>
+            <p>Experience the scent of luxury in every drop.</p>
         </div>
-        <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 20px;">
-        <p style="font-size: 12px; color: #777;">&copy; 2026 Al Rahman Blessings. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 AL RAHMAN BLESSINGS. ALL RIGHTS RESERVED.</p>
     </footer>
 
 </body>
