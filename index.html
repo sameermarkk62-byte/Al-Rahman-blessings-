@@ -3,83 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al Rahman Blessings | All Fragrances</title>
+    <title>Al Rahman Blessings | Premium Attar & Fragrances</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #080808; color: #e0e0e0; margin: 0; text-align: center; }
-        header { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.ibb.co/WbTCpds/bg.jpg'); background-size: cover; padding: 60px 20px; border-bottom: 3px solid #c5a059; }
-        h1 { color: #c5a059; font-size: 2.8em; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
-        .main-poetry { font-style: italic; color: #d4af37; margin-top: 15px; font-size: 1.2em; max-width: 700px; margin: 20px auto; }
-        
-        .promo-bar { background: #c5a059; color: #000; padding: 15px; font-weight: bold; font-size: 1.2em; text-transform: uppercase; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 30px 10px; }
-        .product-card { background: #121212; border: 1px solid #2a2a2a; margin: 15px; padding: 15px; width: 300px; border-radius: 15px; transition: 0.4s; }
-        .product-card:hover { border-color: #c5a059; transform: translateY(-5px); }
-        
-        .product-img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; border: 1px solid #333; }
-        
-        h3 { color: #c5a059; margin: 15px 0 5px 0; }
-        .shayeri-text { font-style: italic; color: #aaa; font-size: 0.95em; min-height: 45px; margin-bottom: 10px; padding: 0 10px; }
-        
-        .btn-whatsapp { display: block; background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
-        .btn-whatsapp:hover { background: #128c7e; }
-        
-        footer { background: #111; padding: 40px; border-top: 1px solid #222; color: #777; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #b08d57; /* Gold/Oud theme color */
+        }
+
+        /* Hero Section - Background Image Fix */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1615484477778-ca3b77940c25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Products Section */
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: #b08d57;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 10% 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Al Rahman Blessings</h1>
-    <p class="main-poetry">"Kuch Reham kar aye zindgi, Thoda sawer Jane de... <br> Tera agla zakhum bhi sehlenge, Pehle Purana wala to bhar Jane de"</p>
-</header>
+    <nav>
+        <div class="logo">Al Rahman Blessings</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
 
-<div class="promo-bar">
-    ✨ All types of Fragrance Available - DM for Order ✨
-</div>
-
-<div class="container" id="gallery">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Exquisite Fragrances</h1>
+            <p>Traditional Attars & Modern Oud</p>
+        </div>
     </div>
 
-<script>
-    const products = [
-        { id: "C3939PwW", name: "Royal Black Oud", shayeri: "Teri galiyon se jab guzre toh mehke sara zamana, Oud ki khushbu mein chupa hai ek fasana." },
-        { id: "wNPNHHYM", name: "White Musk Premium", shayeri: "Safed rang ki pakiqi, har saans mein ghul jaye, Yeh woh khushbu hai jo rooh ko sukoon dilaaye." },
-        { id: "DPYCC7tM", name: "Arabian Bakhoor", shayeri: "Sulagti hui lakdi se jo uthta hai dhuaan, Teri yaadon ka rasta hai yeh pura karvaan." },
-        { id: "gZLgDdy2", name: "Fasli Gulab", shayeri: "Gulabon ki thandak, mausam-e-bahar jaisi, Hamari har boond hai bilkul pyar jaisi." },
-        { id: "ZRGFmKvY", name: "Special Mix Attar", shayeri: "Kayi rango ka nasha hai is ek choti si sheeshi mein, Ek alag hi maza hai hamari is koshish mein." },
-        { id: "231XxyPR", name: "Imperial Sandal", shayeri: "Chandan ki mehak jismein basey hain purane kisse, Khushbu wahi jo ban jaye aapki zindagi ke hisse." },
-        { id: "jPNYrCDY", name: "Kashmiri Saffron", shayeri: "Wadiyon ki thandak aur kesar ka yeh noor, Dekhne wala ho jayega khushbu mein chaknachoor." },
-        { id: "dwLh9ddX", name: "Mystic Amber", shayeri: "Gehri hai yeh khushbu, jaise gehri ho raat, Ismein chupi hai koi ansuni si baat." },
-        { id: "KjV96LPP", name: "Golden Oud", shayeri: "Sone jaisi chamak aur mitti ki woh sondhi mehak, Muskura uthegi aapki har ek chehak." },
-        { id: "nNBnLhXt", name: "Zaffran Blend", shayeri: "Kesar ki khushbu jab hawaon mein ghul jaye, Roohaniyat ka ek naya manzar nazar aaye." }
-        // Aap isi tarah baaki 25 images ke liye bhi shayeri add kar sakte hain
-    ];
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p style="max-width: 700px; margin: 0 auto; line-height: 1.8; color: #666;">
+            Al Rahman Blessings is dedicated to the art of fine perfumery. We source the highest quality ingredients to bring you authentic, long-lasting fragrances that resonate with tradition and luxury.
+        </p>
+    </section>
 
-    const container = document.getElementById('gallery');
-    
-    // Yahan humne aapki baaki images ko bhi loop mein dala hai
-    const allImageIds = ["C3939PwW", "wNPNHHYM", "DPYCC7tM", "gZLgDdy2", "ZRGFmKvY", "231XxyPR", "jPNYrCDY", "dwLh9ddX", "KjV96LPP", "nNBnLhXt", "tPZj2kM2", "S7Rw3j6v", "F4pWTs96", "4ZwWbfRc", "mVH0KVGD", "nqZnWqYC", "zTDjVgTG", "GKVBQQ2", "pBc6gnf4", "Df07SX8H", "vCP1j91Y", "gLNcRp5F", "4gF8vpXx", "zMZ9tmr", "DD0Lz5pt"];
+    <section id="products" class="section" style="background: #fff;">
+        <h2>Our Collection</h2>
+        <div class="product-grid">
+            <div class="product-card"><h3>White Oud</h3></div>
+            <div class="product-card"><h3>Black Oud</h3></div>
+            <div class="product-card"><h3>Frutella</h3></div>
+            <div class="product-card"><h3>Oud Al Kashif</h3></div>
+            <div class="product-card"><h3>Bakhoor Oud</h3></div>
+            <div class="product-card"><h3>Fasli Gulab</h3></div>
+        </div>
+    </section>
 
-    allImageIds.forEach((id, index) => {
-        let name = products[index] ? products[index].name : `Premium Collection ${index + 1}`;
-        let shayeri = products[index] ? products[index].shayeri : "Khushbuon ka ek haseen safar, jo badal de aapka har manzar.";
-        
-        container.innerHTML += `
-            <div class="product-card">
-                <img src="https://i.ibb.co/${id}/img.jpg" alt="${name}" class="product-img">
-                <h3>${name}</h3>
-                <p class="shayeri-text">"${shayeri}"</p>
-                <a href="https://wa.me/918383983217?text=Assalam-o-Alaikum, I want to order ${name}" class="btn-whatsapp">Order on WhatsApp</a>
-            </div>
-        `;
-    });
-</script>
-
-<footer>
-    <p>Al Rahman Blessings &copy; 2026 | Founder: Al Rahman (Poet & Entrepreneur)</p>
-    <p>All Types of Fragrances Available | DM for Order: +91 8383983217</p>
-</footer>
+    <footer id="contact">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>WhatsApp: +91 8383983217</p>
+            <p>Email: info@alrahmanblessings.com</p>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 20px;">
+        <p style="font-size: 12px; color: #777;">&copy; 2026 Al Rahman Blessings. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
