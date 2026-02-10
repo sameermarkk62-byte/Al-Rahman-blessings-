@@ -22,29 +22,107 @@
         .hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1595433707802-68267d83760a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
         .hero h2 { font-family: 'Playfair Display', serif; font-size: 35px; border-top: 2px solid #b08d57; border-bottom: 2px solid #b08d57; padding: 10px 20px; }
 
-        .container { padding: 50px 8%; }
+        .container { padding: 50px 8%; min-height: 400px; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 40px; text-align: center; position: relative; }
         .section-title::after { content: ''; width: 60px; height: 3px; background: #b08d57; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
         
         /* Product Gallery */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { border-radius: 15px; overflow: hidden; background: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: 0.4s; position: relative; }
+        .product-card { border-radius: 15px; overflow: hidden; background: #fff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: 0.4s; position: relative; border: 1px solid #eee; }
         .product-card:hover { transform: translateY(-10px); }
         .product-card img, .product-card video { width: 100%; height: 400px; object-fit: cover; }
         
         .product-details { padding: 20px; text-align: center; }
         .product-name { font-family: 'Playfair Display', serif; font-size: 20px; color: #1a1a1a; margin-bottom: 10px; }
         .buy-btn { display: inline-block; padding: 12px 30px; background: #b08d57; color: #fff; text-decoration: none; border-radius: 5px; font-weight: 600; transition: 0.3s; }
-        .buy-btn:hover { background: #1a1a1a; }
-
+        
         /* Admin Upload Section */
-        .admin-panel { background: #f9f9f9; padding: 60px 20px; margin-top: 50px; border-top: 1px solid #eee; text-align: center; }
+        .admin-panel { background: #f9f9f9; padding: 60px 20px; margin-top: 50px; border-top: 2px dashed #b08d57; text-align: center; }
         #upload_widget { padding: 15px 40px; background: #1a1a1a; color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
         footer { background: #1a1a1a; color: #888; padding: 50px 20px; text-align: center; font-size: 14px; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 5px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 5px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="logo-top">Al Rahman</div>
+        <div class="logo-bottom">Blessings</div>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h2>Pure Arabic Fragrances</h2>
+            <p style="margin-top:15px; letter-spacing: 2px;">Luxury Oudh, Musk & Attar</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="product-grid" id="gallery">
+            </div>
+    </div>
+
+    <div class="admin-panel">
+        <h3 style="margin-bottom: 20px; font-family: 'Playfair Display', serif;">Owner Dashboard</h3>
+        <p style="margin-bottom: 20px; color: #666;">Bhai, yahan se photo upload karein website ke liye:</p>
+        <button id="upload_widget">Add New Product to Website</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Al Rahman Blessings | Premium Attars</p>
+        <p style="margin-top:10px;">Contact: +91 8383983217</p>
+    </footer>
+
+    <a href="https://wa.me/918383983217" class="whatsapp-float" target="_blank">W</a>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyD3lpaR8LSWvllmrSqTNLcj-clS",
+            databaseURL: "https://al-rahman-website-default-rtdb.firebaseio.com/",
+            projectId: "al-rahman-website"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database().ref('products');
+
+        // Cloudinary Widget
+        var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'duhdg8hcw', 
+            uploadPreset: 'Mahmat'
+        }, (error, result) => { 
+            if (!error && result && result.event === "success") { 
+                db.push({
+                    url: result.info.secure_url,
+                    type: result.info.resource_type
+                });
+                alert("Mubarak ho! Product save ho gaya.");
+            }
+        });
+
+        document.getElementById("upload_widget").addEventListener("click", () => myWidget.open(), false);
+
+        // Load Products
+        db.on('child_added', (snapshot) => {
+            const data = snapshot.val();
+            const gallery = document.getElementById('gallery');
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            let media = data.type === 'video' 
+                ? `<video src="${data.url}" controls autoplay muted loop></video>` 
+                : `<img src="${data.url}" alt="Product">`;
+
+            card.innerHTML = `
+                ${media}
+                <div class="product-details">
+                    <div class="product-name">Premium Collection</div>
+                    <a href="https://wa.me/918383983217" class="buy-btn" style="background:#b08d57; color:white; text-decoration:none;">Order on WhatsApp</a>
+                </div>
+            `;
+            gallery.prepend(card);
+        });
+    </script>
+</body>
+</html>
